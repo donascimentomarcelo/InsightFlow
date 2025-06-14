@@ -1,0 +1,59 @@
+# Ignore arquivos de build
+bin/
+obj/
+
+# Ignore pacotes locais
+*.nupkg
+*.snupkg
+
+# Ignore arquivos de log
+*.log
+
+# Ignore configurações de usuário
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Diretórios gerados por VSCode e JetBrains
+.vscode/
+.idea/
+
+# Configurações locais de Rider/JetBrains
+*.sln.iml
+
+# Diretório de publicação
+publish/
+out/
+artifacts/
+
+# Configurações locais de EF Core
+**/Migrations/
+
+# Ignore arquivos de configuração secretos ou temporários
+secrets.json
+appsettings.Local.json
+appsettings.Development.json
+
+# Docker
+*.dockerfile
+docker-compose.override.yml
+
+# Ignore test coverage
+coverage/
+*.coverage
+*.coveragexml
+TestResults/
+
+# Ignore arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Ignore pacotes baixados localmente
+packages/
+
+# Logs do Serilog
+logs/
+
+# Arquivos específicos do InsightFlow
+/src/InsightFlow.Api/wwwroot/
