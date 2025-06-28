@@ -35,3 +35,10 @@
 
 O projeto segue **Clean Architecture (Arquitetura Limpa)** com abordagem **DDD (Domain-Driven Design)** e inspiração em **Hexagonal Architecture (Ports and Adapters)**.
 
+---
+
+## ⚙️ How to run locally
+
+- dotnet restore
+- dotnet build
+- dotnet run --project ./InsightFlow.Api
