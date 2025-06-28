@@ -1,8 +1,20 @@
+using FluentValidation;
+using InsightFlow.Application;
+using InsightFlow.Application.Repositories;
+using InsightFlow.Application.Services;
+using InsightFlow.Application.Validator;
+using InsightFlow.Infrastructure.Dependencies;
+using MediatR;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateIncidentCommandValidator>();
+builder.Services.AddMediatR(typeof(CreateIncidentCommandValidator).Assembly);
+
+builder.Services.AddInsightFlowDependencies();
 
 var app = builder.Build();
 
@@ -21,7 +33,7 @@ var summaries = new[]
 
 app.MapGet("/weatherforecast", () =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
+    var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
