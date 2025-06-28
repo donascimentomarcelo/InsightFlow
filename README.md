@@ -23,6 +23,7 @@
 **InsightFlow** foi criado com foco em inovação e aplicabilidade no ambiente corporativo. Utilizando **Inteligência Artificial Generativa (via OpenAI ou Azure OpenAI)**, o sistema analisa descrições de incidentes e sugere automaticamente possíveis soluções, otimizando o trabalho da equipe de suporte.
 
 **Casos de uso iniciais:**
+
 - Cadastro e gerenciamento de incidentes
 - Sugestão automática de soluções via IA
 - Priorização automática com base em análise semântica
@@ -42,3 +43,25 @@ O projeto segue **Clean Architecture (Arquitetura Limpa)** com abordagem **DDD (
 - dotnet restore
 - dotnet build
 - dotnet run --project ./InsightFlow.Api
+
+## 💻 Instalação e Execução
+
+### ✅ Pré-requisitos
+
+- [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+- VS Code (ou outro editor)
+- PostgreSQL (em breve docker)
+
+### ▶️ Rodando via terminal
+
+### Install make
+
+```powershell
+choco install make
+```
+
+```bash
+make restore
+make build
+make run
+```
