@@ -50,17 +50,11 @@ O projeto adota:
 
 ## 🗂️ Estrutura de Pastas
 
-InsightFlow/
-├── src/
-│ ├── InsightFlow.Api/ # Camada de apresentação (Controllers, Program.cs)
-│ ├── InsightFlow.Application/ # Casos de uso, comandos, handlers, serviços de aplicação
-│ ├── InsightFlow.Domain/ # Entidades, ValueObjects, Enums (modelo de negócio puro)
-│ ├── InsightFlow.Infrastructure/ # EF Core, DbContext, repositórios, configurações
-├── tests/
-│ └── InsightFlow.Tests/ # Testes unitários e de integração
-├── docker-compose.yml # PostgreSQL local
-├── Makefile # Atalhos para build, run, EF Core, Docker
-└── README.md
+- `InsightFlow.Api/`: Camada de apresentação (Controllers, Program.cs)
+- `InsightFlow.Application/`: Casos de uso, comandos, handlers, serviços de aplicação
+- `InsightFlow.Domain/`: Entidades, ValueObjects, Enums (modelo de negócio puro)
+- `InsightFlow.Infrastructure/`: EF Core, DbContext, repositórios, configurações
+- `InsightFlow.Tests/`: Testes unitários e de integração
 
 ## 🚀 Tecnologias Utilizadas
 
