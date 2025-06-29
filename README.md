@@ -10,10 +10,10 @@
 
 - [📖 Sobre o Projeto](#-sobre-o-projeto)
 - [⚙️ Arquitetura](#-arquitetura)
-- [📦 Estrutura de Pastas](#-estrutura-de-pastas)
+- [🗂️ Estrutura de Pastas](#️-estrutura-de-pastas)
 - [🚀 Tecnologias Utilizadas](#-tecnologias-utilizadas)
 - [💻 Instalação e Execução](#-instalação-e-execução)
-- [✅ Funcionalidades](#-funcionalidades)
+- [🧪 Testes](#-testes)
 - [📌 Próximos Passos](#-próximos-passos)
 
 ---
@@ -34,15 +34,47 @@
 
 ## ⚙️ Arquitetura
 
-O projeto segue **Clean Architecture (Arquitetura Limpa)** com abordagem **DDD (Domain-Driven Design)** e inspiração em **Hexagonal Architecture (Ports and Adapters)**.
+O projeto adota:
+
+- **Domain-Driven Design (DDD)**
+- **Clean Architecture** com separação de responsabilidades em camadas
+- **Hexagonal Architecture (Ports & Adapters)** para facilitar testes e integrações
 
 ---
 
-## ⚙️ How to run locally
+## ⚙️ Como rodar localmente
 
 - dotnet restore
 - dotnet build
 - dotnet run --project ./InsightFlow.Api
+
+## 🗂️ Estrutura de Pastas
+
+InsightFlow/
+├── src/
+│ ├── InsightFlow.Api/ # Camada de apresentação (Controllers, Program.cs)
+│ ├── InsightFlow.Application/ # Casos de uso, comandos, handlers, serviços de aplicação
+│ ├── InsightFlow.Domain/ # Entidades, ValueObjects, Enums (modelo de negócio puro)
+│ ├── InsightFlow.Infrastructure/ # EF Core, DbContext, repositórios, configurações
+├── tests/
+│ └── InsightFlow.Tests/ # Testes unitários e de integração
+├── docker-compose.yml # PostgreSQL local
+├── Makefile # Atalhos para build, run, EF Core, Docker
+└── README.md
+
+## 🚀 Tecnologias Utilizadas
+
+- [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+- ASP.NET Core 9
+- MediatR + CQRS
+- FluentValidation
+- Entity Framework Core + PostgreSQL
+- AutoMapper
+- Serilog
+- OpenAI API
+- xUnit + Moq + FluentAssertions
+
+---
 
 ## 💻 Instalação e Execução
 
@@ -64,4 +96,9 @@ choco install make
 make restore
 make build
 make run
+make test
+make migrate
+make update
+make up
+make down
 ```
