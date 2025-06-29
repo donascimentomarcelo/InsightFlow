@@ -27,9 +27,6 @@ publish/
 out/
 artifacts/
 
-# Configurações locais de EF Core
-**/Migrations/
-
 # Ignore arquivos de configuração secretos ou temporários
 secrets.json
 appsettings.Local.json

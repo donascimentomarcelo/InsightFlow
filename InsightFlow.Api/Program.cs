@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi()
     .AddValidatorsFromAssemblyContaining<CreateIncidentCommandValidator>()
     .AddMediatR(typeof(CreateIncidentCommandValidator).Assembly)
-    .AddInsightFlowDependencies()
+    .AddInsightFlowDependencies(builder.Configuration)
     .AddControllers();
 
 var app = builder.Build();
