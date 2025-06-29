@@ -8,7 +8,7 @@ namespace InsightFlow.Domain
     public class SolutionSuggestion
     {
         public Guid Id { get; private set; }
-        public string Content { get; private set; }
+        public string? Content { get; private set; }
         public bool Approved { get; private set; }
         public DateTime CreatedAt { get; private set; }
 

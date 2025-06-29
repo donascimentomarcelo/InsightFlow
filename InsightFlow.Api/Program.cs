@@ -1,7 +1,5 @@
 using FluentValidation;
-using InsightFlow.Application;
-using InsightFlow.Application.Repositories;
-using InsightFlow.Application.Services;
+using InsightFlow.Application.Mappings;
 using InsightFlow.Application.Validator;
 using InsightFlow.Infrastructure.Dependencies;
 using MediatR;
@@ -15,6 +13,8 @@ builder.Services.AddOpenApi()
     .AddMediatR(typeof(CreateIncidentCommandValidator).Assembly)
     .AddInsightFlowDependencies(builder.Configuration)
     .AddControllers();
+
+builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
 var app = builder.Build();
 

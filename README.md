@@ -70,7 +70,7 @@ O projeto adota:
 
 ---
 
-## 💻 Instalação e Execução
+### 🧪 Testes
 
 ### ✅ Pré-requisitos
 
@@ -85,6 +85,7 @@ O projeto adota:
 ```powershell
 choco install make
 ```
+### Makefile commands
 
 ```bash
 make restore
