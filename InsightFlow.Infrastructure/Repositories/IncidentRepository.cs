@@ -1,6 +1,7 @@
 using InsightFlow.Application.Repositories;
 using InsightFlow.Domain;
 using InsightFlow.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace InsightFlow.Infrastructure.Repositories
 {
@@ -17,6 +18,11 @@ namespace InsightFlow.Infrastructure.Repositories
         {
             await _context.Incidents.AddAsync(incident, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
+        }
+
+        public async Task<IEnumerable<Incident>> GetAllAsync(CancellationToken cancellationToken)
+        {
+            return await _context.Incidents.ToListAsync();
         }
     }
 }

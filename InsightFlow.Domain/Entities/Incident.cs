@@ -24,5 +24,10 @@ namespace InsightFlow.Domain
         {
             CreatedAt = date;
         }
+
+        public IReadOnlyCollection<SolutionSuggestion> GetSuggestions()
+        {
+            return _suggestions.AsReadOnly();
+        }
     }
 }
