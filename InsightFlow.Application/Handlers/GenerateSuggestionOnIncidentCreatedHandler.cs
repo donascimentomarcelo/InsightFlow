@@ -15,10 +15,9 @@ namespace InsightFlow.Application.Handlers
 
         public async Task Handle(IncidentEvent notification, CancellationToken cancellationToken)
         {
-            Console.WriteLine($"Incident created with ID: {notification}");
-            var aISuggestion = _aiService.GenerateSuggestionAsync(notification.Incident.Description, cancellationToken);
+            var suggestionText = await _aiService.GenerateSuggestionAsync(notification.Incident.Description, cancellationToken);
 
-            var solutionSuggestion = new SolutionSuggestion(notification.Incident.Id, aISuggestion.Result);
+            var solutionSuggestion = new SolutionSuggestion(notification.Incident.Id, suggestionText);
 
             await _solutionSuggestionRepository.AddAsync(solutionSuggestion, cancellationToken);
         }

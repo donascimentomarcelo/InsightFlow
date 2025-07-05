@@ -8,6 +8,22 @@ namespace InsightFlow.Domain
         public IncidentStatus Status { get; private set; }
         public DateTime CreatedAt { get; private set; }
         private readonly List<SolutionSuggestion> _suggestions = new();
+
+
+        public Incident(string title, string description)
+        {
+            Title = title;
+            Description = description;
+            MarkAsNew();
+            SetCreatedAt(DateTime.UtcNow);
+        }
+        public Incident(Guid Id, string title, string description)
+        {
+            this.Id = Id;
+            Title = title;
+            Description = description;
+        }
+
         public IReadOnlyCollection<SolutionSuggestion> Suggestions => _suggestions.AsReadOnly();
 
         public void MarkAsNew()
