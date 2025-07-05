@@ -14,10 +14,11 @@ namespace InsightFlow.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task AddAsync(Incident incident, CancellationToken cancellationToken)
+        public async Task<Incident> AddAsync(Incident incident, CancellationToken cancellationToken)
         {
-            await _context.Incidents.AddAsync(incident, cancellationToken);
+            var result = await _context.Incidents.AddAsync(incident, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
+            return result.Entity;
         }
 
         public async Task<IEnumerable<Incident>> GetAllAsync(CancellationToken cancellationToken)

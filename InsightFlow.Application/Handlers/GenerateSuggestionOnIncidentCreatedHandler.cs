@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using InsightFlow.Application.Events;
+using InsightFlow.Application.Repositories;
+using InsightFlow.Application.Services;
+using InsightFlow.Domain;
+using MediatR;
+
+namespace InsightFlow.Application.Handlers
+{
+    public class GenerateSuggestionOnIncidentCreatedHandler(
+        IOpenAISuggestionService aiService,
+        ISolutionSuggestionRepository solutionSuggestionRepository) : INotificationHandler<IncidentEvent>
+    {
+        private readonly IOpenAISuggestionService _aiService = aiService;
+        private readonly ISolutionSuggestionRepository _solutionSuggestionRepository = solutionSuggestionRepository;
+
+        public async Task Handle(IncidentEvent notification, CancellationToken cancellationToken)
+        {
+            Console.WriteLine($"Incident created with ID: {notification}");
+            var aISuggestion = _aiService.GenerateSuggestionAsync(notification.Incident.Description, cancellationToken);
+
+            var solutionSuggestion = new SolutionSuggestion(notification.Incident.Id, aISuggestion.Result);
+
+            await _solutionSuggestionRepository.AddAsync(solutionSuggestion, cancellationToken);
+        }
+    }
+}

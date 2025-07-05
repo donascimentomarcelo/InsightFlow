@@ -14,6 +14,7 @@ namespace InsightFlow.Infrastructure.Dependencies
         {
             // Add application repositories
             services.AddScoped<IIncidentRepository, IncidentRepository>();
+            services.AddScoped<ISolutionSuggestionRepository, SolutionSuggestionRepository>();
 
             // Add application services
             services.AddScoped<IOpenAISuggestionService, OpenAISuggestionService>();

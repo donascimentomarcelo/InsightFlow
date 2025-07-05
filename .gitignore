@@ -54,3 +54,5 @@ logs/
 
 # Arquivos específicos do InsightFlow
 /src/InsightFlow.Api/wwwroot/
+
+.env

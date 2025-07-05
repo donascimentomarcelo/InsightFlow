@@ -13,6 +13,7 @@ namespace InsightFlow.Infrastructure.Context
         { }
 
         public DbSet<Incident> Incidents { get; set; }
+        public DbSet<SolutionSuggestion> SolutionSuggestion { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
