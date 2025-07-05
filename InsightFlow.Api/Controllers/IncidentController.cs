@@ -8,14 +8,9 @@ namespace InsightFlow.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class IncidentController : ControllerBase
+    public class IncidentController(IMediator mediator) : ControllerBase
     {
-        private readonly IMediator _mediator;
-
-        public IncidentController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
+        private readonly IMediator _mediator = mediator;
 
         [HttpPost]
         public async Task<ActionResult<CreateIncidentResponse>> Create([FromBody] CreateIncidentCommand command)
